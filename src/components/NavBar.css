@@ -7,10 +7,12 @@
     line-height: 65px;
     text-align: center;
     font-size: 1.5rem;
+    background-color: #181C39;
+    display: flex;
+    justify-content: space-between;
   }
   
   .nav div.brand {
-    float: left;
     width: auto;
     height: auto;
     padding-left: 3rem;
@@ -30,7 +32,6 @@
   
   .nav div.main_list {
     height: 65px;
-    float: right;
   }
   
   .nav div.main_list ul {
