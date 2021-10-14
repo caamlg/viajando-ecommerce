@@ -10,6 +10,7 @@
     background-color: #181C39;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   
   .nav div.brand {
@@ -59,5 +60,32 @@
   }
   
   .nav div.main_list ul li a:hover {
+    padding-bottom: 5px;
     border-bottom:#525EB7 solid 2px;
   }
+@media (min-width: 1200px) {
+  .nav .hamburger {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) {
+
+  .nav .hamburger {
+    order: 0;
+    cursor: pointer;
+    margin-left: 5%;
+    flex: 0 3 10%;
+    position: absolute;
+  }
+
+  .nav div.brand {
+    order: 2;
+    flex: 0 0.5 60%;
+  }
+
+  .nav div.main_list ul {
+    display: none;
+  }
+
+}

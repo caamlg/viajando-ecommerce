@@ -1,11 +1,15 @@
 import React from 'react';
 import {CartWidget} from './CartWidget.js'
 import './NavBar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 export const NavBar = () => {
+ 
     return (
         <nav className="nav">
             <div className="brand">viajando ✈</div>
+            <FontAwesomeIcon icon={faBars} className="hamburger" />
             <div id="mainListDiv" className="main_list">
             <ul className="navlinks">
                 <li><a href="/#">Organización</a></li>
@@ -15,7 +19,7 @@ export const NavBar = () => {
                 <li><a href="/#">Mochilas y valijas</a></li>
             </ul>
             </div>
-            <CartWidget />
+            <CartWidget/>
         </nav>
     )
 }
