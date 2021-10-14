@@ -67,6 +67,9 @@
   .nav .hamburger {
     display: none;
   }
+  .nav div.main_list--open ul {
+    display: none;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -86,6 +89,34 @@
 
   .nav div.main_list ul {
     display: none;
+  }
+
+  .nav div.main_list--open ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+    list-style: none;
+    line-height: normal;
+    position: absolute;
+    right: 0;
+    left: 0;
+    padding: 0 0 15px 5%;
+    width: 100%;
+    background-color: #181C39;
+    border-top: #525EB7 solid 2px;
+  }
+
+  .nav div.main_list--open ul li a {
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .nav div.main_list--open ul a:hover {
+    padding-bottom: 5px;
+    border-bottom:#525EB7 solid 2px;
   }
 
 }
