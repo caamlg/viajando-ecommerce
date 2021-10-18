@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,700;1,400&display=swap");
+
+.product {
+  position: relative;
+  width: 70vw;
+  margin: 20px;
+  height: auto;
+  background-color: #fff;
+  font-family: "Nunito", sans-serif;
+}
+
+.product:hover {
+  top: -2px;
+  box-shadow: 0px 15px 11px -10px rgba(0, 0, 0, 0.2);
+}
+
+.product-title {
+  padding: 1em;
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.product-text {
+  padding: 0 1em;
+}
+
+img {
+  margin: 0;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.button-item {
+  position: relative;
+  width: 80%;
+  margin: 1em 10%;
+  padding: 12px 24px;
+  background-color: #7379ac;
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
+}
+
+.button-item:hover {
+  background-color: #181c39;
+  top: -2px;
+  box-shadow: 0px 15px 11px -10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+@media (min-width: 600px) {
+  .product {
+    width: calc((100vw - 20vw) / 2);
+  }
+}
+
+@media (min-width: 950px) {
+  .product {
+    width: calc((100vw - 20vw) / 3);
+  }
+}
+
+@media (min-width: 1200px) {
+  .product {
+    width: calc((100vw - 20vw) / 4);
+  }
+}
+
+@media (min-width: 1650px) {
+	.product {
+		width: calc((100vw - 25vw) / 5);
+	}
+}

@@ -1,0 +1,46 @@
+[
+    {
+      "id": 1,
+      "title": "mochila",
+      "subtitle": "para viajar cómodo",
+      "pictureUrl": "https://images.unsplash.com/photo-1509762774605-f07235a08f1f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80",
+      "price": 5000,
+      "stock": 20
+    },
+  
+    {
+      "id": 2,
+      "title": "cuaderno",
+      "subtitle": "para anotar tus planes y guardar recuerdos",
+      "pictureUrl": "https://images.unsplash.com/photo-1630313232855-ead5329b8e9e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=766&q=80",
+      "price": 600,
+      "stock": 30
+    },
+  
+    {
+      "id": 3,
+      "title": "mapamundi",
+      "subtitle": "para marcar los lugares visitados",
+      "pictureUrl": "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=850&q=80",
+      "price": 1500,
+      "stock": 10
+    },
+  
+    {
+      "id": 4,
+      "title": "antifaz",
+      "subtitle": "para dormir mientras viajás",
+      "pictureUrl": "https://i.imgur.com/RWrt4sL.jpg",
+      "price": 400,
+      "stock": 50
+    },
+  
+    {
+      "id": 5,
+      "title": "neceser",
+      "subtitle": "para ordenar tus productos de higiene y cosméticos",
+      "pictureUrl": "https://i.imgur.com/Pt2Khqq.png",
+      "price": 800,
+      "stock": 25
+    }
+  ]

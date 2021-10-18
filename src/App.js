@@ -11,7 +11,7 @@ function App() {
       </header>
       <section className="App-section">
       <ItemListContainer greeting="Hola :) Acá va ir el contenido del catálogo"/>
-      <ItemCount initial="0" stock="10"/>
+      <ItemCount initial={0} stock={10}/>
       </section>
     </div>
   );
