@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export const NavBar = () => {
   const [open, setOpen] = useState(false);
@@ -25,28 +26,33 @@ export const NavBar = () => {
     />
   );
 
-  const closeMobileMenu = () => setOpen(false)
+  const closeMobileMenu = () => setOpen(false);
 
   return (
     <nav className="nav">
-      <div className="brand">viajando ✈</div>
+      <div className="brand">
+        <Link to={"/"}>viajando ✈</Link>
+      </div>
       {open ? closeIcon : barsIcon}
-      <div id="mainListDiv" className={open ? "main_list main_list--open" : "main_list"}>
+      <div
+        id="mainListDiv"
+        className={open ? "main_list main_list--open" : "main_list"}
+      >
         <ul className="navlinks">
           <li onClick={closeMobileMenu}>
-            <a href="/#/">Organización</a>
+            <NavLink to={"/category/organizacion"}>Organización</NavLink>
           </li>
           <li onClick={closeMobileMenu}>
-            <a href="/#">Cuadernos</a>
+            <NavLink to={"/category/cuadernos"}>Cuadernos</NavLink>
           </li>
           <li onClick={closeMobileMenu}>
-            <a href="/#">Deco y regalos</a>
+            <NavLink to={"/category/deco"}>Deco y regalos</NavLink>
           </li>
           <li onClick={closeMobileMenu}>
-            <a href="/#">Accesorios</a>
+            <NavLink to={"/category/accesorios"}>Accesorios</NavLink>
           </li>
           <li onClick={closeMobileMenu}>
-            <a href="/#">Mochilas y valijas</a>
+            <NavLink to={"/category/mochilas"}>Mochilas y valijas</NavLink>
           </li>
         </ul>
       </div>

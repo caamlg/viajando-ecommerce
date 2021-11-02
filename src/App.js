@@ -1,18 +1,34 @@
-import './App.css';
-import { ItemCount } from './components/ItemCount';
-import { ItemListContainer } from './components/ItemListContainer';
-import { NavBar } from './components/NavBar.js';
+import "./App.css";
+import { ItemListContainer } from "./components/ItemListContainer";
+import { ItemDetailContainer } from "./components/ItemDetailContainer";
+import { NavBar } from "./components/NavBar.js";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <NavBar />
-      </header>
-      <section className="App-section">
-      <ItemListContainer greeting="Hola :) Acá va ir el contenido del catálogo"/>
-      <ItemCount initial={0} stock={10}/>
-      </section>
+      <BrowserRouter>
+        <header className="App-header">
+          <NavBar />
+        </header>
+        <Switch>
+          <Route exact path="/">
+            <section className="App-section">
+              <ItemListContainer />
+            </section>
+          </Route>
+          <Route path="/category/:catId">
+            <section className="App-section">
+              <ItemListContainer />
+            </section>
+          </Route>
+          <Route path="/item/:id">
+          <section className="App-section">
+            <ItemDetailContainer />
+            </section>
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
