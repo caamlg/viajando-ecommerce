@@ -3,10 +3,12 @@ import { ItemListContainer } from "./components/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { NavBar } from "./components/NavBar.js";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { CartContext } from "./context/CartContext.js";
 
 function App() {
   return (
     <div className="App">
+      <CartContext.Provider value={[]}>
       <BrowserRouter>
         <header className="App-header">
           <NavBar />
@@ -29,6 +31,7 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
+      </CartContext.Provider>
     </div>
   );
 }

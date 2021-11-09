@@ -3,7 +3,7 @@ import { ItemList } from "./ItemList";
 import "./ItemListContainer.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Products from "./Products.json";
+import Products from "../Products.json";
 
 export const ItemListContainer = (props) => {
   const { catId } = useParams();

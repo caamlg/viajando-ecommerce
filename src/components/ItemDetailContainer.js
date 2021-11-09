@@ -2,7 +2,7 @@ import React from "react";
 import { ItemDetail } from "./ItemDetail";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Products from "./Products.json";
+import Products from "../Products.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
@@ -25,7 +25,7 @@ export const ItemDetailContainer = () => {
   useEffect(() => {
     getItem(Products)
       .then((result) => {
-        const filteredItems = result.filter(x => x.id === itemId)[0];
+        const [filteredItems] = result.filter(x => x.id === itemId);
         setClickedItem(filteredItems);
       })
       .catch((err) => console.log(err));

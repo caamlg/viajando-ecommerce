@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 const { useState } = React;
 
-export const ItemCount = ({ stock, initial }) => {
+export const ItemCount = ({ stock, initial, id, onAdd }) => {
   const [counter, setCounter] = useState(initial);
 
   const add = () =>
@@ -17,6 +17,12 @@ export const ItemCount = ({ stock, initial }) => {
       ? setCounter(counter - 1)
       : alert("Ya quitaste todas las unidades");
 
+  const handleOnAdd = () => {
+    if (counter !== 0) {
+      onAdd(counter);
+    }
+  };
+
   return (
     <div className="counter__container">
       <div className="counter">
@@ -28,7 +34,10 @@ export const ItemCount = ({ stock, initial }) => {
           <button onClick={add}>+</button>
         </div>
       </div>
-      <button className="button-cart">agregar al carrito <FontAwesomeIcon icon={faCartPlus} className="icon_cart"/> </button>
+      <button className="button-cart" id={id} onClick={() => handleOnAdd()}>
+        agregar al carrito{" "}
+        <FontAwesomeIcon icon={faCartPlus} className="icon_cart" />{" "}
+      </button>
     </div>
   );
 };
