@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ItemCount } from "./ItemCount";
-import { Cart } from "./Cart";
+import { ViewCart } from "./ViewCart";
 import "./ItemDetail.css";
 
 export const ItemDetail = ({ item }) => {
@@ -17,7 +17,7 @@ export const ItemDetail = ({ item }) => {
       <div className="detail-subtitle">{item.subtitle}</div>
       <div className="detail-price">$ {item.price}</div>
       {cartQuantity ? (
-        <Cart quantity={cartQuantity} />
+        <ViewCart quantity={cartQuantity} />
       ) : (
         <ItemCount
           initial={1}
