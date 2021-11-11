@@ -10,8 +10,8 @@ export const ItemList = ({ items }) => {
     <div className="flex-container">
       {items.length ? (
         items.map((item) => (
-          <Link to={`/item/${item.id}`} style={{ textDecoration: "none" }}>
-            <Item item={item} key={item.id} />
+          <Link to={`/item/${item.id}`} style={{ textDecoration: "none" }} key={item.id}>
+            <Item item={item} />
           </Link>
         ))
       ) : (
