@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Products from "../Products.json";
 
-export const ItemListContainer = (props) => {
+export const ItemListContainer = () => {
   const { catId } = useParams();
   const [items, setItems] = useState([]);
 
