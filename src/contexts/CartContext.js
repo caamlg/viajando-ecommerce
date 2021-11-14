@@ -7,9 +7,7 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const isItemInCart = (id) => {
-    return cart.find((item) => item.info.id === id) ? true : false;
-  };
+  const isItemInCart = (id) => cart.some((item) => item.info.id === id);
 
   const addItem = (item) => {
     if (!isItemInCart(item.info.id)) {
@@ -17,8 +15,13 @@ export const CartProvider = ({ children }) => {
       setCart([...cart, item]);
     } else {
       //si es true (existe el item) suma más cantidad
-      cart.find((value) => value.info.id === item.info.id).quantity +=
-        item.quantity;
+      /*       cart.find((value) => value.info.id === item.info.id).quantity +=
+        item.quantity; */
+      setCart(cart.map((value) => {
+        if (value.info.id === item.info.id) {
+          value.quantity += item.quantity;
+        } return value;
+      }))
     }
   };
 

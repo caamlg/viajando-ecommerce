@@ -4,6 +4,8 @@ import { ItemDetailContainer } from "./components/ItemDetailContainer";
 import { NavBar } from "./components/NavBar.js";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from "./contexts/CartContext.js";
+//import {getFirestore} from "./firebase";
+
 
 function App() {
   return (
