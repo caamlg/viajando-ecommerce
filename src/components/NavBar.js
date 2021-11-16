@@ -6,8 +6,13 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
 export const NavBar = () => {
+  const { cart } = useCart();
+
+  const itemsInCart = cart.reduce((total, p) => total + p.quantity, 0);
+
   const [open, setOpen] = useState(false);
 
   const barsIcon = (
@@ -56,7 +61,9 @@ export const NavBar = () => {
           </li>
         </ul>
       </div>
-      <CartWidget />
+      <Link to="/cart" style={{ textDecoration: "none" }}>
+        <CartWidget totalItems={itemsInCart} />
+      </Link>
     </nav>
   );
 };

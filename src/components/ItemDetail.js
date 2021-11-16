@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ItemCount } from "./ItemCount";
-import { ViewCart } from "./ViewCart";
+import { CartView } from "./CartView";
 import { useCart } from "../contexts/CartContext";
 import "./ItemDetail.css";
 
@@ -8,8 +8,6 @@ export const ItemDetail = ({ item }) => {
   const [cartQuantity, setCartQuantity] = useState(0);
 
   const { cart, addItem } = useCart();
-
-  console.log(cart);
 
   const saveQuantity = (counter) => {
     setCartQuantity(counter);
@@ -24,7 +22,7 @@ export const ItemDetail = ({ item }) => {
       <div className="detail-subtitle">{item.subtitle}</div>
       <div className="detail-price">$ {item.price}</div>
       {cartQuantity ? (
-        <ViewCart quantity={cartQuantity} />
+        <CartView />
       ) : (
         <ItemCount
           initial={1}

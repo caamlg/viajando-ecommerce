@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const ViewCart = ({ quantity }) => {
+export const CartView = () => {
   return (
     <div className="counter__container">
       <Link to="/cart" style={{ textDecoration: "none" }}>
-        <button className="button-cart">Agregaste {quantity} productos</button>
+        <button className="button-cart">Terminar mi compra</button>
       </Link>
     </div>
   );
