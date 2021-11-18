@@ -2,16 +2,27 @@ import React from "react";
 import { ItemDetail } from "./ItemDetail";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Products from "../Products.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { getFirestore } from "../firebase";
+import { getDoc, doc } from "firebase/firestore";
 
 export const ItemDetailContainer = () => {
   const [clickedItem, setClickedItem] = useState("");
   const { id } = useParams();
-  const itemId = parseInt(id);
+  //const itemId = parseInt(id);
 
-  const getItem = (item) =>
+  useEffect(() => {
+    const db = getFirestore();
+    const itemColl = doc(db, "items", id);
+    getDoc(itemColl).then((snap) => {
+      if (snap.exists()) {
+        setClickedItem(snap.data());
+      } 
+    });
+  }, [id]);
+
+/*   const getItem = (item) =>
     new Promise((resolve, reject) => {
       setTimeout(() => {
         if (item) {
@@ -29,7 +40,7 @@ export const ItemDetailContainer = () => {
         setClickedItem(filteredItems);
       })
       .catch((err) => console.log(err));
-  }, [itemId]);
+  }, [itemId]); */
 
   return (
     <>

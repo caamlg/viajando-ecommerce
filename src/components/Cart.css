@@ -222,6 +222,7 @@ button.remove:hover {
 .btn:focus,
 .btn:active {
   background: #7379ac;
+  cursor: pointer;
 }
 .btn:hover:after,
 .btn:focus:after,
@@ -264,6 +265,7 @@ button.remove:hover {
 .subtotal .totalRow .value {
   letter-spacing: -0.025em;
   width: 35%;
+  color: #fff;
 }
 @media only screen and (max-width: 600px) {
   .wrap {

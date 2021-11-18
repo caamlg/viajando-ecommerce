@@ -3,13 +3,32 @@ import { ItemList } from "./ItemList";
 import "./ItemListContainer.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Products from "../Products.json";
+import { getFirestore } from "../firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 export const ItemListContainer = () => {
   const { catId } = useParams();
   const [items, setItems] = useState([]);
 
-  const getData = (data) =>
+  useEffect(() => {
+    const db = getFirestore();
+
+    const getData = (q) =>
+      getDocs(q).then((snap) => {
+        setItems(snap.docs.map((item) => item.data()));
+      });
+
+    if (catId) {
+      const q = query(collection(db, "items"), where("category", "==", catId));
+      getData(q);
+    } else {
+      const q = query(collection(db, "items"));
+      getData(q);
+    }
+
+  }, [catId]);
+
+/*   const getData = (data) =>
     new Promise((resolve, reject) => {
       setTimeout(() => {
         if (data) {
@@ -28,7 +47,7 @@ export const ItemListContainer = () => {
           : setItems(result);
       })
       .catch((err) => console.log(err));
-  }, [catId]);
+  }, [catId]); */
 
   return (
     <>

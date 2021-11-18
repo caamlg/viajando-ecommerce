@@ -2,12 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 import "./Cart.css";
+//import {getFirestore, collection, addDoc} from "./firebase";
 
 export const Cart = () => {
   const { cart, removeItem, clear } = useCart();
   const totalToPay = cart.reduce((total, item) => {
     return total + item.info.price * item.quantity;
   }, 0);
+
+  //CLASE FIREBASE 2 -- VARIABLE ORDER (HARDCODEO INFO DEL BUYER PORQUE NO TENGO FORMULARIO)
+  const handleBuy = () => {
+    console.log(order);
+  };
+  const order = {
+    buyer: { name: "Camila", phone: "555", email: "email@email.com" },
+    items: cart,
+    totalToPay,
+  };
+
+/*   const db = getFirestore();
+const ordersCollection = collection(db, "orders");
+
+addDoc(ordersCollection, order).then (({id}) => console.log(id)); */
+
   return cart.length ? (
     <div className="wrap cf">
       <div className="heading cf">
@@ -71,9 +88,9 @@ export const Cart = () => {
             <span className="value">$ {totalToPay}</span>
           </li>
           <li className="totalRow">
-            <a href="/#" className="btn continue">
+            <div className="btn continue" onClick={() => handleBuy()}>
               Comprar
-            </a>
+            </div>
           </li>
         </ul>
       </div>
