@@ -7,12 +7,11 @@ import "./ItemDetail.css";
 export const ItemDetail = ({ item }) => {
   const [cartQuantity, setCartQuantity] = useState(0);
 
-  const { cart, addItem } = useCart();
+  const { addItem } = useCart();
 
   const saveQuantity = (counter) => {
     setCartQuantity(counter);
     addItem({"info": item, "quantity": counter})
-    console.log("objeto y cantidad", cart)
   };
 
   return (

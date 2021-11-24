@@ -1,29 +1,46 @@
-import React from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 import "./Cart.css";
+import { getFirestore } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 //import {getFirestore, collection, addDoc} from "./firebase";
 
 export const Cart = () => {
   const { cart, removeItem, clear } = useCart();
+  const [buyer, setBuyer] = useState({
+    buyerName: "",
+    buyerMail: "",
+    buyerPhone: "",
+  });
   const totalToPay = cart.reduce((total, item) => {
     return total + item.info.price * item.quantity;
   }, 0);
-
-  //CLASE FIREBASE 2 -- VARIABLE ORDER (HARDCODEO INFO DEL BUYER PORQUE NO TENGO FORMULARIO)
-  const handleBuy = () => {
-    console.log(order);
-  };
-  const order = {
-    buyer: { name: "Camila", phone: "555", email: "email@email.com" },
-    items: cart,
-    totalToPay,
+  const date = new Date();
+  const orderDate = date.toLocaleDateString();
+  const formHandler = (e) => {
+    setBuyer({ ...buyer, [e.target.name]: e.target.value });
   };
 
-/*   const db = getFirestore();
-const ordersCollection = collection(db, "orders");
+  //CLASE FIREBASE 2 -- VARIABLE ORDER
 
-addDoc(ordersCollection, order).then (({id}) => console.log(id)); */
+  const handleBuy = (e) => {
+    const db = getFirestore();
+    const order = {
+      buyer,
+      cart,
+      totalToPay,
+      date: orderDate,
+    };
+
+    console.log(order)
+
+    const ordersCollection = collection(db, "orders");
+    addDoc(ordersCollection, order).then(({ id }) =>
+      console.log(id)
+    );
+    clear();
+  };
 
   return cart.length ? (
     <div className="wrap cf">
@@ -88,9 +105,27 @@ addDoc(ordersCollection, order).then (({id}) => console.log(id)); */
             <span className="value">$ {totalToPay}</span>
           </li>
           <li className="totalRow">
-            <div className="btn continue" onClick={() => handleBuy()}>
-              Comprar
-            </div>
+            <form onSubmit={handleBuy}>
+              <input
+                type="text"
+                placeholder="Nombre"
+                name="buyerName"
+                onChange={formHandler}
+              />
+              <input
+                type="email"
+                placeholder="Mail"
+                name="buyerMail"
+                onChange={formHandler}
+              />
+              <input
+                type="tel"
+                placeholder="Teléfono"
+                name="buyerPhone"
+                onChange={formHandler}
+              />
+            </form>
+            <div className="btn continue">Comprar</div>
           </li>
         </ul>
       </div>
