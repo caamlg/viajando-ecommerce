@@ -2,7 +2,8 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 import "./Cart.css";
-import { getFirestore } from "../firebase";
+//import { getFirestore } from "../firebase";
+import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 //import {getFirestore, collection, addDoc} from "./firebase";
 
@@ -22,10 +23,13 @@ export const Cart = () => {
     setBuyer({ ...buyer, [e.target.name]: e.target.value });
   };
 
+  console.log(buyer)
+
   //CLASE FIREBASE 2 -- VARIABLE ORDER
 
   const handleBuy = (e) => {
-    const db = getFirestore();
+    //const db = getFirestore();
+    e.preventDefault();
     const order = {
       buyer,
       cart,
@@ -33,13 +37,11 @@ export const Cart = () => {
       date: orderDate,
     };
 
-    console.log(order)
-
     const ordersCollection = collection(db, "orders");
     addDoc(ordersCollection, order).then(({ id }) =>
       console.log(id)
     );
-    clear();
+    //clear();
   };
 
   return cart.length ? (
@@ -105,7 +107,7 @@ export const Cart = () => {
             <span className="value">$ {totalToPay}</span>
           </li>
           <li className="totalRow">
-            <form onSubmit={handleBuy}>
+            <form>
               <input
                 type="text"
                 placeholder="Nombre"
@@ -125,7 +127,7 @@ export const Cart = () => {
                 onChange={formHandler}
               />
             </form>
-            <div className="btn continue">Comprar</div>
+            <div className="btn continue" onClick={handleBuy}>Comprar</div>
           </li>
         </ul>
       </div>
