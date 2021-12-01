@@ -10,7 +10,6 @@ import { getDoc, doc } from "firebase/firestore";
 export const ItemDetailContainer = () => {
   const [clickedItem, setClickedItem] = useState("");
   const { id } = useParams();
-  //const itemId = parseInt(id);
 
   useEffect(() => {
     const db = getFirestore();
@@ -21,26 +20,6 @@ export const ItemDetailContainer = () => {
       } 
     });
   }, [id]);
-
-/*   const getItem = (item) =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (item) {
-          resolve(item);
-        } else {
-          reject("No se encontró nada");
-        }
-      }, 2000);
-    });
-
-  useEffect(() => {
-    getItem(Products)
-      .then((result) => {
-        const [filteredItems] = result.filter(x => x.id === itemId);
-        setClickedItem(filteredItems);
-      })
-      .catch((err) => console.log(err));
-  }, [itemId]); */
 
   return (
     <>

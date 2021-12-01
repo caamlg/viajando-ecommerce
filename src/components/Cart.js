@@ -2,10 +2,8 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 import "./Cart.css";
-//import { getFirestore } from "../firebase";
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
-//import {getFirestore, collection, addDoc} from "./firebase";
 
 export const Cart = () => {
   const { cart, removeItem, clear } = useCart();
@@ -25,10 +23,8 @@ export const Cart = () => {
 
   console.log(buyer)
 
-  //CLASE FIREBASE 2 -- VARIABLE ORDER
 
   const handleBuy = (e) => {
-    //const db = getFirestore();
     e.preventDefault();
     const order = {
       buyer,
@@ -41,7 +37,7 @@ export const Cart = () => {
     addDoc(ordersCollection, order).then(({ id }) =>
       console.log(id)
     );
-    //clear();
+    clear();
   };
 
   return cart.length ? (
