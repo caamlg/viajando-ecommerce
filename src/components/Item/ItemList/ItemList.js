@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./ItemList.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import Item from "./Item.js";
+import Item from "../Item.js";
 
 export const ItemList = ({ items }) => {
   return (

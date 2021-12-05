@@ -1,12 +1,10 @@
 import "./App.css";
-import { ItemListContainer } from "./components/ItemListContainer";
-import { ItemDetailContainer } from "./components/ItemDetailContainer";
-import { Cart } from "./components/Cart";
-import { NavBar } from "./components/NavBar.js";
+import { ItemListContainer } from "./components/Item/ItemList/ItemListContainer";
+import { ItemDetailContainer } from "./components/Item/ItemDetail/ItemDetailContainer";
+import { Cart } from "./components/Cart/Cart";
+import { NavBar } from "./components/NavBar/NavBar.js";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from "./contexts/CartContext.js";
-//import {getFirestore} from "./firebase";
-
 
 function App() {
   return (

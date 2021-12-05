@@ -1,12 +1,10 @@
-import React from "react";
+import {React, useState} from "react";
 import { CartWidget } from "./CartWidget.js";
 import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Link, NavLink } from "react-router-dom";
-import { useCart } from "../contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
 
 export const NavBar = () => {
   const { cart } = useCart();

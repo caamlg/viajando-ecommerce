@@ -1,44 +1,14 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../contexts/CartContext";
+import { useCart } from "../../contexts/CartContext";
+import CheckOutForm from "./CheckOutForm"
 import "./Cart.css";
-import { db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
 
 export const Cart = () => {
   const { cart, removeItem, clear } = useCart();
-  const [buyer, setBuyer] = useState({
-    buyerName: "",
-    buyerMail: "",
-    buyerPhone: "",
-  });
   const totalToPay = cart.reduce((total, item) => {
     return total + item.info.price * item.quantity;
   }, 0);
-  const date = new Date();
-  const orderDate = date.toLocaleDateString();
-  const formHandler = (e) => {
-    setBuyer({ ...buyer, [e.target.name]: e.target.value });
-  };
-
-  console.log(buyer)
-
-
-  const handleBuy = (e) => {
-    e.preventDefault();
-    const order = {
-      buyer,
-      cart,
-      totalToPay,
-      date: orderDate,
-    };
-
-    const ordersCollection = collection(db, "orders");
-    addDoc(ordersCollection, order).then(({ id }) =>
-      console.log(id)
-    );
-    clear();
-  };
 
   return cart.length ? (
     <div className="wrap cf">
@@ -103,30 +73,10 @@ export const Cart = () => {
             <span className="value">$ {totalToPay}</span>
           </li>
           <li className="totalRow">
-            <form>
-              <input
-                type="text"
-                placeholder="Nombre"
-                name="buyerName"
-                onChange={formHandler}
-              />
-              <input
-                type="email"
-                placeholder="Mail"
-                name="buyerMail"
-                onChange={formHandler}
-              />
-              <input
-                type="tel"
-                placeholder="Teléfono"
-                name="buyerPhone"
-                onChange={formHandler}
-              />
-            </form>
-            <div className="btn continue" onClick={handleBuy}>Comprar</div>
           </li>
         </ul>
       </div>
+      <CheckOutForm cart={cart} totalToPay={totalToPay} clear={clear}/>
     </div>
   ) : (
     <div className="wrap cf">

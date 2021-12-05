@@ -1,8 +1,8 @@
-import React from "react";
+import { React, useState } from "react";
 import "./ItemCount.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
-const { useState } = React;
+import Swal from "sweetalert2";
 
 export const ItemCount = ({ stock, initial, id, onAdd }) => {
   const [counter, setCounter] = useState(initial);
@@ -10,12 +10,20 @@ export const ItemCount = ({ stock, initial, id, onAdd }) => {
   const add = () =>
     counter < stock
       ? setCounter(counter + 1)
-      : alert("No hay suficiente stock");
+      : Swal.fire({
+          icon: "error",
+          title: "Stock insuficiente",
+          text: "Lo sentimos, alcanzaste el número máximo de stock disponible",
+        });
 
   const remove = () =>
     counter > 0
       ? setCounter(counter - 1)
-      : alert("Ya quitaste todas las unidades");
+      : Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Ya quitaste todas las unidades",
+        });
 
   const handleOnAdd = () => {
     if (counter !== 0) {

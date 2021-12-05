@@ -1,0 +1,69 @@
+.form-container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  font-family: Nunito, sans-serif;
+}
+
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form input[type="tel"],
+.checkout-form {
+  background: #f9f9f9;
+  padding: 25px;
+  margin: 150px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.checkout-form h3 {
+  display: block;
+  font-size: 30px;
+  color: #7379ac;
+  text-transform: uppercase;
+  margin-top: 0;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.checkout-form h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form input[type="tel"],
+.checkout-form input[type="text"]:hover,
+.checkout-form input[type="email"]:hover,
+.checkout-form input[type="tel"]:hover,
+.checkout-form input {
+  border: medium none !important;
+  margin: 0 0 10px;
+  width: 100%;
+  border: none;
+  background: #7379ac;
+  color: #fff;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.checkout-form input:focus,
+::-webkit-input-placeholder {
+  color: #bbb;
+}
+
+:-moz-placeholder {
+  color: #bbb;
+}
+
+::-moz-placeholder {
+  color: #bbb;
+}
+
+:-ms-input-placeholder {
+  color: #bbb;
+}

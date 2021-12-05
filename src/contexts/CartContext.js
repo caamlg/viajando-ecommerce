@@ -11,12 +11,8 @@ export const CartProvider = ({ children }) => {
 
   const addItem = (item) => {
     if (!isItemInCart(item.info.id)) {
-      //si es false agrega el item (no existe)
       setCart([...cart, item]);
     } else {
-      //si es true (existe el item) suma más cantidad
-      /*       cart.find((value) => value.info.id === item.info.id).quantity +=
-        item.quantity; */
       setCart(cart.map((value) => {
         if (value.info.id === item.info.id) {
           value.quantity += item.quantity;

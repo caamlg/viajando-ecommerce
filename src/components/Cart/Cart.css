@@ -229,6 +229,12 @@ button.remove:hover {
 .btn:active:after {
   right: -10px;
 }
+
+.btn:disabled {
+  cursor: not-allowed;
+  background-color: #aaa;
+}
+
 .btn.empty {
   margin-top: 1em;
   float: left;
@@ -238,7 +244,7 @@ button.remove:hover {
   background-color: rgb(126, 27, 2);
   cursor: pointer;
 }
-/* TOTAL AND CHECKOUT */
+
 .subtotal {
   float: right;
   width: 35%;

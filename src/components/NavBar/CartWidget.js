@@ -1,6 +1,6 @@
 import React from "react";
-import cartImage from "../images/cart.png";
-import { useCart } from "../contexts/CartContext";
+import cartImage from "../../images/cart.png";
+import { useCart } from "../../contexts/CartContext";
 import "./CartWidget.css";
 
 export const CartWidget = ({ totalItems }) => {
