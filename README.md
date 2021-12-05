@@ -8,10 +8,6 @@ Si no se utiliza ninguna categoría, el home muestra todos los productos con su 
 
 El proyecto tiene todos sus productos en firestore y genera las órdenes de compra guardando la información allí mismo.
 
-# Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
